@@ -55,6 +55,9 @@ const pageClasses = {
 const customClasses = {
     'pages\\custom\\product\\related-products': () => import('./custom//product/related-products'), // Windows
     'pages/custom/product/related-products': () => import('./custom//product/related-products'), // Mac/Linux
+
+    'pages\\product': () => import('./custom//product/related-products'), // Windows
+    'pages/product': () => import('./custom//product/related-products'), // Mac/Linux
 };
 
 /**

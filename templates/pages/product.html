@@ -10,6 +10,7 @@ product:
         limit: {{theme_settings.productpage_similar_by_views_count}}
 ---
 {{inject 'productId' product.id}}
+{{inject 'relatedproducts' product.related_products}}
 
 {{#partial "page"}}
 
@@ -40,3 +41,9 @@ product:
     {{> components/products/schema}}
 {{/partial}}
 {{> layout/base}}
+
+
+<script>
+    var jsContext = JSON.parse({{jsContext}});
+    var relatedProductData = jsContext.related_products;
+</script>
