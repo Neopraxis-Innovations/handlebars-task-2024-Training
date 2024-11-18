@@ -1,86 +1,58 @@
----
-product:
-    videos:
-        limit: {{theme_settings.productpage_videos_count}}
-    reviews:
-        limit: {{theme_settings.productpage_reviews_count}}
-    related_products:
-        limit: {{theme_settings.productpage_related_products_count}}
-    similar_by_views:
-        limit: {{theme_settings.productpage_similar_by_views_count}}
----
-{{inject 'productId' product.id}}
-
 {{#partial "page"}}
-
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-
-    {{#each product.shipping_messages}}
-        {{> components/common/alert/alert-info message}}
-    {{/each}}
-
-    <div>
-        {{> components/products/product-view}}
-
-        {{{region name="product_below_content"}}}
-
-        {{#if product.videos.list.length}}
-            {{> components/products/videos product.videos}}
-        {{/if}}
 
 <div class="cm-bundle-builder-wrapper">
   <div class="row">
-    <div class="columns large-12 bundle-bar">
+    <div class="columns small-12 large-12 bundle-bar">
       <div class="row">
-        <div class="columns large-4">
+        <div class="columns small-4 large-3">
           <div class="row bundle-bar-coloumn">
-            <div class="columns large-6">
+            <div class="columns small-6 large-6">
               <img
-                src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/900w/products/266/1472/download_5_-_Edited_1__23733.1673885135.png"
+                src="{{getImage product.main_image}}"
                 class="product-image"
               />
             </div>
-            <div class="columns large-6 product-name">622GW</div>
+            <div class="columns small-6 large-6 product-name">{{product.meta_description}}</div>
           </div>
         </div>
-        <div class="columns large-4">
-          <div class="row bundle-bar-coloumn">
-            <div class="columns large-2">
+        <div class="columns small-4 large-5">
+          <div class="row bundle-bar-coloumn-2">
+            <div class="columns small-2 large-2">
               <img
                 src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/900w/products/188/7010/256GBcard_memory_card_no_shadow__02411.1727176889.png "
                 class="bundle-bar-small-image"
               />
               <div class="bundle-bar-small-image-text">Rear View Camera</div>
             </div>
-            <div class="columns large-2">
+            <div class="columns small-2 large-2">
               <img
                 src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/900w/products/180/7061/rear_view_camera__40096.1727254134.png"
                 class="bundle-bar-small-image"
               />
               <div class="bundle-bar-small-image-text">Rear View Camera</div>
             </div>
-            <div class="columns large-2">
+            <div class="columns small-2 large-2">
               <img
                 src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/320w/attribute_rule_images/41_source_1731478352.png"
                 class="bundle-bar-small-image"
               />
               <div class="bundle-bar-small-image-text">Rear View Camera</div>
             </div>
-            <div class="columns large-2">
+            <div class="columns small-2 large-2">
               <img
                 src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/900w/products/188/7010/256GBcard_memory_card_no_shadow__02411.1727176889.png"
                 class="bundle-bar-small-image"
               />
               <div class="bundle-bar-small-image-text">Rear View Camera</div>
             </div>
-            <div class="columns large-2">
+            <div class="columns small-2 large-2">
               <img
                 src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/900w/products/458/7060/one_year_warranty_no_shadow__97679.1727253851.png"
                 class="bundle-bar-small-image"
               />
               <div class="bundle-bar-small-image-text">Rear View Camera</div>
             </div>
-            <div class="columns large-2">
+            <div class="columns small-2 large-2">
               <img
                 src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/900w/products/180/7061/rear_view_camera__40096.1727254134.png"
                 class="bundle-bar-small-image"
@@ -89,13 +61,13 @@ product:
             </div>
           </div>
         </div>
-        <div class="columns large-4">
+        <div class="columns small-4 large-4 bundle-bar-coloumn-3">
           <div class="row">
-            <div class="columns large-6 product-price">
+            <div class="columns small-6 large-6 product-price">
               £528.48
               <div class="product-price-content">or 3 payments of £177.82</div>
             </div>
-            <div class="columns large-6">
+            <div class="columns small-6 large-6">
               <button class="add-to-cart-btn">Add to cart</button>
             </div>
           </div>
@@ -103,159 +75,51 @@ product:
       </div>
     </div>
   </div>
+
+  <!-- product listing heading -->
   <div>
     <h1 class="heading-description">
       Add a rear-facing camera for more protection...
     </h1>
   </div>
 
+  <!-- product listing section -->
   <div class="row">
-    <div class="columns large-3 related-product-container">
-      <div class="related-product-name">Rear Window Camera</div>
-      <div class="related-product-price">£34.50</div>
-      <div>
-        <img
-          src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/900w/products/178/7007/Rear_Window_Cam_non_shadow__59819.1727175810.png"
-          class="related-product-image"
-        />
-      </div>
-
-      <div class="row">
-        <div class="columns large-6">
-          <button class="related-product-btn-1">Learn more</button>
-        </div>
-        <div class="columns large-6">
-          <button class="related-product-btn-2">Add to bundle</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="columns large-3 related-product-container">
-      <div class="related-product-name">Rear Window Camera</div>
-      <div class="related-product-price">£34.50</div>
-      <div>
-        <img
-          src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/900w/products/180/7061/rear_view_camera__40096.1727254134.png"
-          class="related-product-image"
-        />
-      </div>
-
-      <div class="row">
-        <div class="columns large-6">
-          <button class="related-product-btn-1">Learn more</button>
-        </div>
-        <div class="columns large-6">
-          <button class="related-product-btn-2">Add to bundle</button>
-        </div>
-      </div>
-    </div>
-    <div class="columns large-3 related-product-container">
-      <div class="related-product-name">Rear Window Camera</div>
-      <div class="related-product-price">£34.50</div>
-      <div>
-        <img
-          src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/900w/products/180/7061/rear_view_camera__40096.1727254134.png"
-          class="related-product-image"
-        />
-      </div>
-
-      <div class="row">
-        <div class="columns large-6">
-          <button class="related-product-btn-1">Learn more</button>
-        </div>
-        <div class="columns large-6">
-          <button class="related-product-btn-2">Add to bundle</button>
-        </div>
-      </div>
-    </div>
-    <div class="columns large-3 related-product-container">
-      <div>
-        <img
-          src="https://cdn11.bigcommerce.com/s-o257sk57z9/images/stencil/original/image-manager/nothanks.png?t=1662972940&_gl=1*183hi9z*_ga*MTc3Njg0NTM2NC4xNjQzMDkyMzIw*_ga_WS2VZYPC6G*MTY2Mjk3MjM4Mi40MDUuMS4xNjYyOTcyOTU0LjU4LjAuMA.."
-          class="related-product-image-none"
-        />
-        <div class="related-product-text-none">None</div>
-      </div>
-
-    </div>
-  </div>
-  <div>
-    <h1 class="heading-description">
-        ...OR a second Dash Cam half price this <span style="color: #000 !important;">Black Friday</span>
-    </h1>
-  </div>
-
-  <div class="row">
-    <div class="columns large-3 related-product-container">
-      <div class="related-product-name">Rear Window Camera</div>
-      <div class="related-product-price">£34.50</div>
-      <div>
-        <img
-          src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/320w/products/266/1472/download_5_-_Edited_1__23733.1673885135.png"
-          class="related-product-image"
-        />
-      </div>
-
-      <div class="row">
-        <div class="columns large-12">
-          <button class="related-product-btn-3">Add to bundle</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="columns large-3 related-product-container">
-      <div class="related-product-name">Rear Window Camera</div>
-      <div class="related-product-price">£34.50</div>
-      <div>
-        <img
-          src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/320w/products/205/872/best__23491.1674027453.png"
-          class="related-product-image"
-        />
-      </div>
-
-      <div class="row">
-        <div class="columns large-12">
-          <button class="related-product-btn-3">Add to bundle</button>
-        </div>
-      </div>
-    </div>
-    <div class="columns large-3 related-product-container">
-      <div class="related-product-name">Rear Window Camera</div>
-      <div class="related-product-price">£34.50</div>
-      <div>
-        <img
-          src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/320w/attribute_rule_images/41_source_1731478352.png"
-          class="related-product-image"
-        />
-      </div>
-
-      <div class="row">
-        <div class="columns large-12">
-          <button class="related-product-btn-3">Add to bundle</button>
-        </div>
-      </div>
-    </div>
-    <div class="columns large-3 related-product-container">
-        <div>
-            <img
-              src="https://cdn11.bigcommerce.com/s-o257sk57z9/images/stencil/original/image-manager/nothanks.png?t=1662972940&_gl=1*183hi9z*_ga*MTc3Njg0NTM2NC4xNjQzMDkyMzIw*_ga_WS2VZYPC6G*MTY2Mjk3MjM4Mi40MDUuMS4xNjYyOTcyOTU0LjU4LjAuMA.."
-              class="related-product-image-none"
-            />
-            <div class="related-product-text-none">None</div>
+    <div class="listing-section">
+      {{#each product.related_products}}
+      <div class="columns small-12 medium-6 large-3 related-product-container">
+        <div class="related-product-card">
+          <div class="related-product-details">
+            <h3 class="related-product-name">{{name}}</h3>
+            <p class="related-product-price">{{price.without_tax.formatted}}</p>
           </div>
+          <div class="related-product-image-container">
+            <img
+              src="{{getImage image}}"
+              alt="{{name}}"
+              class="related-product-image"
+            />
+          </div>
+          <div class="related-product-actions">
+            <button class="related-product-btn-1">Learn more</button>
+            <button class="related-product-btn-2 add-to-bundle">
+              Add to bundle
+            </button>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+      <div class="columns large-3 related-product-container-none">
+        <div>
+          <img
+            src="https://cdn11.bigcommerce.com/s-o257sk57z9/images/stencil/original/image-manager/nothanks.png?t=1662972940&_gl=1*183hi9z*_ga*MTc3Njg0NTM2NC4xNjQzMDkyMzIw*_ga_WS2VZYPC6G*MTY2Mjk3MjM4Mi40MDUuMS4xNjYyOTcyOTU0LjU4LjAuMA.."
+            class="related-product-image-none"
+          />
+          <div class="related-product-text-none">None</div>
+        </div>
+      </div>
     </div>
+
+    {{/partial}} {{> layout/base}}
   </div>
 </div>
-
-
-
-{{#all settings.show_product_reviews theme_settings.show_product_reviews (if theme_settings.show_product_details_tabs '!==' true)}}
-            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
-        {{/all}}
-
-        {{> components/products/tabs}}
-    </div>
-    
-
-    {{> components/products/schema}}
-{{/partial}} {{> layout/base}}
