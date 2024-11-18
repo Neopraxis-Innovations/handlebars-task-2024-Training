@@ -1,3 +1,14 @@
+---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+---
 {{inject 'productId' product.id}}
 
 {{#partial "page"}}
@@ -6,7 +17,7 @@
 <div class="cm-bundle-builder-wrapper">
     <div class="row">
         <div class="columns large-12 bundlebar-main">
-            <div class="columns large-4 bundlebar bundlebar-width-left">
+            <div class="columns small-4 large-4 bundlebar bundlebar-width-left">
                 <div class="columns large-6">
                     <img src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
                         alt="">
@@ -17,9 +28,9 @@
                     </div>
                 </div>
             </div>
-            <div class="columns large-4 bundlebar">
-                <div class="columns large-12 bundlebar-listing-items">
-                    <div class="columns large-2 bundlebar-listing-items-sub">
+            <div class="columns small-4 large-4 bundlebar">
+                <div class="columns small-12 large-12 bundlebar-listing-items">
+                    <!-- <div class="columns small-2 large-2 bundlebar-listing-items-sub">
                         <div>
                             <img class="bundlebar-listing-items_image"
                                 src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
@@ -29,7 +40,7 @@
                             Rear View Camera
                         </div>
                     </div>
-                    <div class="columns large-2 bundlebar-listing-items-sub">
+                    <div class="columns small-2 large-2 bundlebar-listing-items-sub">
                         <div>
                             <img class="bundlebar-listing-items_image"
                                 src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
@@ -39,7 +50,7 @@
                             64GB U3 micro-SD Card
                         </div>
                     </div>
-                    <div class="columns large-2 bundlebar-listing-items-sub">
+                    <div class="columns small-2 large-2 bundlebar-listing-items-sub">
                         <div>
                             <img class="bundlebar-listing-items_image"
                                 src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
@@ -49,7 +60,7 @@
                             Front View Camera
                         </div>
                     </div>
-                    <div class="columns large-2 bundlebar-listing-items-sub">
+                    <div class="columns small-2 large-2 bundlebar-listing-items-sub">
                         <div>
                             <img class="bundlebar-listing-items_image"
                                 src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
@@ -59,7 +70,7 @@
                             128GB U3 micro-SD Card
                         </div>
                     </div>
-                    <div class="columns large-2 bundlebar-listing-items-sub">
+                    <div class="columns small-2 large-2 bundlebar-listing-items-sub">
                         <div>
                             <img class="bundlebar-listing-items_image"
                                 src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
@@ -69,7 +80,7 @@
                             64GB U3 micro-SD Card
                         </div>
                     </div>
-                    <div class="columns large-2 bundlebar-listing-items-sub">
+                    <div class="columns small-2 large-2 bundlebar-listing-items-sub">
                         <div>
                             <img class="bundlebar-listing-items_image"
                                 src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
@@ -78,11 +89,12 @@
                         <div class="bundlebar-listing-items_text">
                             64GB U3 micro-SD Card
                         </div>
-                    </div>
+                    </div> -->
+                    <div class="bundlebar-bar-set">Choose add-ons and services to create your bundle, or say “None.”</div>
                 </div>
             </div>
-            <div class="columns large-4 bundlebar-width-right">
-                <div class="columns large-6">
+            <div class="columns small-4 large-4 bundlebar-width-right">
+                <div class="columns small-6 large-6">
                     <div class="bundlebar-product-price">
                         &#36;360
                     </div>
@@ -107,18 +119,22 @@
         </div>
     </div>
 
+ 
     <div class="row">
-        <div class="columns large-3">
+
+        {{#each product.related_products}}
+     
+        <div class="columns large-3 bundle-product-allignment">
             <div class="bundle-product-content-main">
                 <div class="bundle-product-name">
-                    Rear Window Cam
+                    {{name}}
                 </div>
                 <div class="bundle-product-price">
-                    &#36;360
+                    {{price.without_tax.formatted}}
                 </div>
-                <div>
-                    <img src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/122/930/rear_view_cam__52567.1638854335.386.513__60194-removebg-preview__47018.1669201861.png"
-                        alt="">
+                <div class="product-image-bundle">
+                    <img class="product-image-bundle-img" src="{{getImage image}}"
+                        alt="" height="50px">
                 </div>
                 <div class="row">
                     <div class="columns large-6">
@@ -130,143 +146,18 @@
                 </div>
             </div>
         </div>
-        <div class="columns large-3">
-            <div class="bundle-product-content-main">
-                <div class="bundle-product-name">
-                    Rear Window Cam
-                </div>
-                <div class="bundle-product-price">
-                    &#36;360
-                </div>
-                <div>
-                    <img src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/122/930/rear_view_cam__52567.1638854335.386.513__60194-removebg-preview__47018.1669201861.png"
-                        alt="">
-                </div>
-                <div class="row">
-                    <div class="columns large-6">
-                        <button class="bar-button-learn">Learn more</button>
-                    </div>
-                    <div class="columns large-6">
-                        <button class="bar-button bar-button-bundle">Add to bundle</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="columns large-3">
-            <div class="bundle-product-content-main">
-                <div class="bundle-product-name">
-                    Rear Window Cam
-                </div>
-                <div class="bundle-product-price">
-                    &#36;360
-                </div>
-                <div>
-                    <img src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/122/930/rear_view_cam__52567.1638854335.386.513__60194-removebg-preview__47018.1669201861.png"
-                        alt="">
-                </div>
-                <div class="row">
-                    <div class="columns large-6">
-                        <button class="bar-button-learn">Learn more</button>
-                    </div>
-                    <div class="columns large-6">
-                        <button class="bar-button bar-button-bundle">Add to bundle</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="columns large-3">
+        
+        <!-- <div class="columns large-3">
             <div class="bundle-product-content-main-non">
                 <img class="bundle-image-center"
                     src="https://cdn11.bigcommerce.com/s-o257sk57z9/images/stencil/original/image-manager/nothanks.png?t=1662972940&_gl=1*183hi9z*_ga*MTc3Njg0NTM2NC4xNjQzMDkyMzIw*_ga_WS2VZYPC6G*MTY2Mjk3MjM4Mi40MDUuMS4xNjYyOTcyOTU0LjU4LjAuMA.."
                     alt="">
                 <div class="bundle-image-center-text">None</div>
             </div>
-        </div>
+        </div> -->
+        {{/each}}
     </div>
 
-    <div class="row">
-        <div class="columns large-12">
-            <h1 class="bundle-heading-description">Get a card that can store your recordings.</h1>
-            <p class="bundle-heading-peragraph">Only one camera can be used at a time.</p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="columns large-3">
-            <div class="bundle-product-content-main">
-                <div class="bundle-product-name">
-                    Rear Window Cam
-                </div>
-                <div class="bundle-product-price">
-                    &#36;360
-                </div>
-                <div>
-                    <img src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/122/930/rear_view_cam__52567.1638854335.386.513__60194-removebg-preview__47018.1669201861.png"
-                        alt="">
-                </div>
-                <div class="row">
-                    <div class="columns large-6">
-                        <button class="bar-button-learn">Learn more</button>
-                    </div>
-                    <div class="columns large-6">
-                        <button class="bar-button bar-button-bundle">Add to bundle</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="columns large-3">
-            <div class="bundle-product-content-main">
-                <div class="bundle-product-name">
-                    Rear Window Cam
-                </div>
-                <div class="bundle-product-price">
-                    &#36;360
-                </div>
-                <div>
-                    <img src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/122/930/rear_view_cam__52567.1638854335.386.513__60194-removebg-preview__47018.1669201861.png"
-                        alt="">
-                </div>
-                <div class="row">
-                    <div class="columns large-6">
-                        <button class="bar-button-learn">Learn more</button>
-                    </div>
-                    <div class="columns large-6">
-                        <button class="bar-button bar-button-bundle">Add to bundle</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="columns large-3">
-            <div class="bundle-product-content-main">
-                <div class="bundle-product-name">
-                    Rear Window Cam
-                </div>
-                <div class="bundle-product-price">
-                    &#36;360
-                </div>
-                <div>
-                    <img src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/122/930/rear_view_cam__52567.1638854335.386.513__60194-removebg-preview__47018.1669201861.png"
-                        alt="">
-                </div>
-                <div class="row">
-                    <div class="columns large-6">
-                        <button class="bar-button-learn">Learn more</button>
-                    </div>
-                    <div class="columns large-6">
-                        <button class="bar-button bar-button-bundle">Add to bundle</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="columns large-3">
-            <div class="bundle-product-content-main-non">
-                <img class="bundle-image-center"
-                    src="https://cdn11.bigcommerce.com/s-o257sk57z9/images/stencil/original/image-manager/nothanks.png?t=1662972940&_gl=1*183hi9z*_ga*MTc3Njg0NTM2NC4xNjQzMDkyMzIw*_ga_WS2VZYPC6G*MTY2Mjk3MjM4Mi40MDUuMS4xNjYyOTcyOTU0LjU4LjAuMA.."
-                    alt="">
-                <div class="bundle-image-center-text">None</div>
-            </div>
-        </div>
-    </div>
-</div>
+   
 {{/partial}}
 {{> layout/base}}

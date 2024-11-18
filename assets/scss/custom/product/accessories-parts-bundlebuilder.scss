@@ -166,9 +166,17 @@ body {
 }
 
 .bundle-product-name {
-    font-size: 22px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 600;
     font-family: "Poppins", serif;
+    min-height: 66px;
+    margin-top: 10px;
+}
+
+.bundlebar-bar-set {
+    font-weight: 600 !important;
+    font-family: "Poppins", serif;
+    margin-top: 20px;
 }
 
 .bundle-product-price {
@@ -187,6 +195,7 @@ body {
     display: block;
     margin-left: 35%;
     margin-top: 51%;
+    height: 60px;
 }
 
 .bundle-image-center-text {
@@ -204,4 +213,22 @@ body {
 .row {
     margin: 10px !important;
     max-width: unset !important;
+}
+
+.product-image-bundle {
+    width: 247px;
+    height: 247px;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    justify-content: center;
+}
+
+.bundle-product-allignment {
+    margin-bottom: 30px;
+}
+
+.product-image-bundle-img {
+    width: 70%;
+
 }
