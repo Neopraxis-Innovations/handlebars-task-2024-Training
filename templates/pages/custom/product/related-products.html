@@ -12,11 +12,16 @@
                 class="product-image"
               />
             </div>
-            <div class="columns small-6 large-6 product-name">{{product.meta_description}}</div>
+            <div class="columns small-6 large-6 product-name">
+              {{product.meta_description}}
+            </div>
           </div>
         </div>
         <div class="columns small-4 large-5">
           <div class="row bundle-bar-coloumn-2">
+            <div class="bundle-bar-coloumn-2-text">
+              Choose add-ons and services to create your bundle, or say “None.”
+            </div>
             <div class="columns small-2 large-2">
               <img
                 src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/900w/products/188/7010/256GBcard_memory_card_no_shadow__02411.1727176889.png "
@@ -87,7 +92,7 @@
   <div class="row">
     <div class="listing-section">
       {{#each product.related_products}}
-      <div class="columns small-12 medium-6 large-3 related-product-container">
+      <div class="columns small-4 medium-6 large-3 related-product-container">
         <div class="related-product-card">
           <div class="related-product-details">
             <h3 class="related-product-name">{{name}}</h3>
@@ -102,7 +107,10 @@
           </div>
           <div class="related-product-actions">
             <button class="related-product-btn-1">Learn more</button>
-            <button class="related-product-btn-2 add-to-bundle">
+            <button
+              class="related-product-btn-2"
+              data-image="{{getImage image}}"
+            >
               Add to bundle
             </button>
           </div>
@@ -123,3 +131,11 @@
     {{/partial}} {{> layout/base}}
   </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  $(".related-product-btn-2").click(function () {
+    var image = $(this).attr("data-image");
+    console.log("--- image ", image);
+    $(".bundle-bar-coloumn-2").append(`<img src="${image}"  >`);
+  });
+</script>
