@@ -1,0 +1,207 @@
+// bundile bar
+body {
+    overflow-x: hidden !important;
+}
+
+.bundlebar {
+    padding: 10px;
+    background: #EFEFEF;
+    min-height: 110px;
+    width: fit-content;
+}
+
+.bundlebar-main {
+    padding: 0px 0px;
+    background: #EFEFEF;
+    border-radius: 20px;
+    min-height: 85px;
+    font-family: "Poppins", serif;
+}
+
+.bundlebar-product-detail {
+    font-size: 34px;
+    font-family:  "Poppins", serif;
+    padding-right: 10px;
+}
+
+.bundlebar-listing-items {
+    margin-top: 15px;
+}
+.bundlebar-product-price {
+    font-size: 34px;
+    font-family:  "Poppins", serif;
+    padding-left: 10px;
+    margin-left: 20px;
+}
+
+.bundlebar-button-price {
+    margin-top: 10px;
+}
+
+.bar-button {
+    background: -webkit-gradient(linear, left top, right top, from(#0A78CA), to(#8111BB)) !important;
+    background: linear-gradient(90deg, #0A78CA 0%, #8111BB 100%) !important;
+    color: #ffffff !important;
+    border-radius: 5px !important;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: bolder;
+    margin: 0px 0px 0px;
+    font-family: "Poppins", serif;
+    width: 40%;
+    height: 40px;
+    padding: 0px !important;
+}
+
+.bundlebar-sub {
+    border-right: 1px solid black;
+}
+
+.bundlebar-listing-items_text {
+    font-family: "Poppins", serif;
+    font-size: 10px;
+}
+
+.bundlebar-listing-items-sub {
+    width: 76px;
+    height: 60px;
+}
+
+.bundlebar-listing-items_image {
+    width: 40px !important;
+}
+
+.bundlebar-width-left {
+    width: 270px;
+    border-radius: 20px 0px 0px 20px;
+    border-right: solid 1px #6868684d;
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+}
+
+.bundlebar-width-right {
+    width: 330px;
+    border-left: solid 1px #6868684d;
+    min-height: 110px;
+    padding-top: 20px;
+}
+
+// Description and title
+
+.bundle-heading-description {
+    font-family: "Poppins", serif !important;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    background: -webkit-linear-gradient(rgb(27, 4, 238), rgb(193, 5, 236));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 70px;
+    white-space: nowrap;
+    line-height: 48px;
+}
+
+.bundle-heading-peragraph {
+    font-family: "Poppins", serif !important;
+    font-style: normal;
+    font-size: 17px;
+    font-weight: 400;
+    color: rgb(31, 31, 31);
+    text-align: center;
+}
+
+// Product Listing 
+
+.bundle-product-content-main {
+    min-width: 241.83px;
+    min-height: 400.16px;
+    background: #EFEFEF;
+    border-radius: 20px;
+    padding: 16px;
+}
+
+.bundle-product-content-main-non {
+    min-width: 241.83px;
+    min-height: 400.16px;
+    background: #EFEFEF;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.bar-button-learn {
+    background: whitesmoke;
+    color: #000000 !important;
+    border-radius: 5px !important;
+    border: solid 1px #72727257;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Poppins", serif;
+    width: 88px;
+    height: 38px;
+    padding: initial;
+}
+
+.bar-button-bundle {
+    background: -webkit-gradient(linear, left top, right top, from(#0A78CA), to(#8111BB)) !important;
+    background: linear-gradient(90deg, #0A78CA 0%, #8111BB 100%) !important;
+    color: #ffffff !important;
+    border-radius: 5px !important;
+    cursor: pointer;
+    overflow: hidden;
+    border: solid 1px #72727257;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 11px;
+    font-weight: bolder;
+    font-family: "Poppins", serif;
+    width: 88px;
+    height: 38px;
+    padding: initial;
+    white-space: nowrap;
+}
+
+.bundle-product-name {
+    font-size: 22px;
+    font-weight: 400;
+    font-family: "Poppins", serif;
+}
+
+.bundle-product-price {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Poppins", serif;
+}
+
+.bundlebar-button-below-content {
+    font-size: 8px;
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+.bundle-image-center {
+    display: block;
+    margin-left: 35%;
+    margin-top: 51%;
+}
+
+.bundle-image-center-text {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.cm-bundle-builder-wrapper {
+    width: 98.6vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 13px;
+}
+
+.row {
+    margin: 10px !important;
+    max-width: unset !important;
+}
