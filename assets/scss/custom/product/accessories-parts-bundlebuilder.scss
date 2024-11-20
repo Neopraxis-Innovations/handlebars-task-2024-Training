@@ -1,7 +1,4 @@
 // bundile bar
-body {
-    overflow-x: hidden !important;
-}
 
 .bundlebar {
     padding: 10px;
@@ -9,7 +6,10 @@ body {
     min-height: 110px;
     width: fit-content;
 }
-
+.bundlebar-listing-items {
+    display: flex;
+    flex-wrap: wrap;
+}
 .bundlebar-main {
     padding: 0px 0px;
     background: #EFEFEF;
@@ -20,18 +20,18 @@ body {
 
 .bundlebar-product-detail {
     font-size: 34px;
-    font-family:  "Poppins", serif;
+    font-family: "Poppins", serif;
     padding-right: 10px;
 }
 
 .bundlebar-listing-items {
     margin-top: 15px;
 }
+
 .bundlebar-product-price {
     font-size: 34px;
-    font-family:  "Poppins", serif;
+    font-family: "Poppins", serif;
     padding-left: 10px;
-    margin-left: 20px;
 }
 
 .bundlebar-button-price {
@@ -64,12 +64,15 @@ body {
 }
 
 .bundlebar-listing-items-sub {
-    width: 76px;
+    width: 60px;
     height: 60px;
+    display: flex;
+    flex-direction: row;
 }
 
 .bundlebar-listing-items_image {
     width: 40px !important;
+    min-height: 40px;
 }
 
 .bundlebar-width-left {
@@ -82,11 +85,23 @@ body {
 }
 
 .bundlebar-width-right {
-    width: 330px;
+    width: 370px;
     border-left: solid 1px #6868684d;
-    min-height: 110px;
+    min-height: 115px;
     padding-top: 20px;
+    align-items: center;
 }
+
+.bundlebar-item-price {
+    font-size: 11px;
+}
+
+.cm-bundle-text {
+    font-size: 15px;
+    font-family: "Poppins", serif;
+    margin-top: 20px;
+}
+
 
 // Description and title
 
@@ -180,7 +195,7 @@ body {
 }
 
 .bundle-product-price {
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 400;
     font-family: "Poppins", serif;
 }
@@ -229,6 +244,103 @@ body {
 }
 
 .product-image-bundle-img {
-    width: 70%;
+    width: 90%;
 
+}
+
+.some-class {
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    .listing-section {
+      justify-content: center !important;
+      overflow-x: hidden !important;
+    }
+    .bundle-product-content-main {
+        min-width: 146.83px;
+        min-height: 500.16px;
+        background: #EFEFEF;
+        border-radius: 20px;
+        padding: 16px;
+    }
+    .product-image-bundle {
+        width: 125px;
+        height: 247px;
+        display: flex;
+        align-items: center;
+        background-size: cover;
+        justify-content: center;
+    }
+    .bundle-product-name {
+        font-size: 15px;
+        font-weight: 600;
+        font-family: "Poppins", serif;
+        min-height: 70px;
+        margin-top: 10px;
+    }
+    .bar-button-learn {
+        background: whitesmoke;
+        color: #000000 !important;
+        border-radius: 5px !important;
+        border: solid 1px #72727257;
+        cursor: pointer;
+        overflow: hidden;
+        font-size: 13px;
+        font-weight: 400;
+        font-family: "Poppins", serif;
+        width: 85px;
+        height: 42px;
+        padding: initial;
+        margin-bottom: 10px;
+    }
+    .bar-button-bundle {
+        background: -webkit-gradient(linear, left top, right top, from(#0A78CA), to(#8111BB)) !important;
+        background: linear-gradient(90deg, #0A78CA 0%, #8111BB 100%) !important;
+        color: #ffffff !important;
+        border-radius: 5px !important;
+        cursor: pointer;
+        overflow: hidden;
+        border: solid 1px #72727257;
+        cursor: pointer;
+        overflow: hidden;
+        font-size: 10px;
+        font-weight: bolder;
+        font-family: "Poppins", serif;
+        width: 85px;
+        height: 42px;
+        padding: initial;
+        white-space: nowrap;
+    }
+    .bundlebar-main {
+        align-items: center;
+    }
+    .bundle-heading-description {
+        font-family: "Poppins", serif !important;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        text-align: center;
+        background: -webkit-linear-gradient(#1b04ee, #c105ec);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-top: 70px;
+        white-space: break-spaces;
+        line-height: 48px;
+    }
+    .container {
+        padding-left: 1px;
+    }
+    .bundle-product-content-button {
+        display: inline-grid;
+    }
+    .row {
+        // margin: 13px !important;
+        max-width: unset !important;
+        justify-content: center;
+    }
+  }
+
+.test-1 {
+    display: flex;
+    justify-content: center;
 }

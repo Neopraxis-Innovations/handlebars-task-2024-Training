@@ -14,89 +14,30 @@ product:
 {{#partial "page"}}
 
 
-<div class="cm-bundle-builder-wrapper">
+<div class="cm-bundle-builder-wrapper listing-section">
     <div class="row">
         <div class="columns large-12 bundlebar-main">
             <div class="columns small-4 large-4 bundlebar bundlebar-width-left">
                 <div class="columns large-6">
-                    <img src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
+                    <img src="{{getImage product.main_image}}"
                         alt="">
                 </div>
                 <div class="columns large-6">
                     <div class="bundlebar-product-detail">
-                        622G
+                        {{head.title}}
                     </div>
                 </div>
             </div>
             <div class="columns small-4 large-4 bundlebar">
-                <div class="columns small-12 large-12 bundlebar-listing-items">
-                    <!-- <div class="columns small-2 large-2 bundlebar-listing-items-sub">
-                        <div>
-                            <img class="bundlebar-listing-items_image"
-                                src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
-                                alt="">
-                        </div>
-                        <div class="bundlebar-listing-items_text">
-                            Rear View Camera
-                        </div>
-                    </div>
-                    <div class="columns small-2 large-2 bundlebar-listing-items-sub">
-                        <div>
-                            <img class="bundlebar-listing-items_image"
-                                src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
-                                alt="">
-                        </div>
-                        <div class="bundlebar-listing-items_text">
-                            64GB U3 micro-SD Card
-                        </div>
-                    </div>
-                    <div class="columns small-2 large-2 bundlebar-listing-items-sub">
-                        <div>
-                            <img class="bundlebar-listing-items_image"
-                                src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
-                                alt="">
-                        </div>
-                        <div class="bundlebar-listing-items_text">
-                            Front View Camera
-                        </div>
-                    </div>
-                    <div class="columns small-2 large-2 bundlebar-listing-items-sub">
-                        <div>
-                            <img class="bundlebar-listing-items_image"
-                                src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
-                                alt="">
-                        </div>
-                        <div class="bundlebar-listing-items_text">
-                            128GB U3 micro-SD Card
-                        </div>
-                    </div>
-                    <div class="columns small-2 large-2 bundlebar-listing-items-sub">
-                        <div>
-                            <img class="bundlebar-listing-items_image"
-                                src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
-                                alt="">
-                        </div>
-                        <div class="bundlebar-listing-items_text">
-                            64GB U3 micro-SD Card
-                        </div>
-                    </div>
-                    <div class="columns small-2 large-2 bundlebar-listing-items-sub">
-                        <div>
-                            <img class="bundlebar-listing-items_image"
-                                src="https://cdn11.bigcommerce.com/s-jpkc0tnv4j/images/stencil/900w/products/156/1224/download_5_-_Edited_1__26497.1699845275.png"
-                                alt="">
-                        </div>
-                        <div class="bundlebar-listing-items_text">
-                            64GB U3 micro-SD Card
-                        </div>
-                    </div> -->
-                    <div class="bundlebar-bar-set">Choose add-ons and services to create your bundle, or say “None.”</div>
+                <div class="columns small-12 large-12 bundlebar-listing-items" id="bundlebar-listing-items">
+                    <p class="cm-bundle-text">Choose add-ons and services to create your bundle, or say “None.”</p>
                 </div>
+
             </div>
             <div class="columns small-4 large-4 bundlebar-width-right">
-                <div class="columns small-6 large-6">
-                    <div class="bundlebar-product-price">
-                        &#36;360
+                <div class="columns small-6 large-6 bundlebar-price-button-container">
+                    <div class="bundlebar-product-price" data-main_product_price="{{product.price.without_tax.value}}">
+                        &#36;{{product.price.without_tax.value}}
                     </div>
                     <div class="bundlebar-button-below-content">
                         *or 4 payments of &#36;75.00
@@ -120,44 +61,112 @@ product:
     </div>
 
  
-    <div class="row">
+    <div class="row listing-section">
 
         {{#each product.related_products}}
      
-        <div class="columns large-3 bundle-product-allignment">
+        <div class="columns small-6 large-3 bundle-product-allignment">
             <div class="bundle-product-content-main">
-                <div class="bundle-product-name">
+                <div class="bundle-product-name" id="bundle-name" data-name="{{name}}">
                     {{name}}
                 </div>
-                <div class="bundle-product-price">
+                <div class="bundle-product-price" data-price="{{price.without_tax.formatted}}" id="main_product_price">
                     {{price.without_tax.formatted}}
                 </div>
                 <div class="product-image-bundle">
                     <img class="product-image-bundle-img" src="{{getImage image}}"
-                        alt="" height="50px">
+                        alt="" height="50px" data-image="{{getImage image}}">
                 </div>
-                <div class="row">
-                    <div class="columns large-6">
+                <div class="row bundle-product-content-button">
+                    <div class="columns small-6 large-6">
                         <button class="bar-button-learn">Learn more</button>
                     </div>
-                    <div class="columns large-6">
-                        <button class="bar-button bar-button-bundle">Add to bundle</button>
+                    <div class="columns small-6 large-6">
+                        <button class="bar-button bar-button-bundle" id="button_add_bundle-{{id}}" 
+                        data-image="{{getImage image}}" 
+                        data-price="{{price.without_tax.formatted}}" 
+                        data-name="{{name}}">Add to bundle</button>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- <div class="columns large-3">
-            <div class="bundle-product-content-main-non">
-                <img class="bundle-image-center"
-                    src="https://cdn11.bigcommerce.com/s-o257sk57z9/images/stencil/original/image-manager/nothanks.png?t=1662972940&_gl=1*183hi9z*_ga*MTc3Njg0NTM2NC4xNjQzMDkyMzIw*_ga_WS2VZYPC6G*MTY2Mjk3MjM4Mi40MDUuMS4xNjYyOTcyOTU0LjU4LjAuMA.."
-                    alt="">
-                <div class="bundle-image-center-text">None</div>
-            </div>
-        </div> -->
         {{/each}}
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttonsAddBundle = document.querySelectorAll('.bar-button-bundle');
+            const collectionOfData = [];
+    
+            buttonsAddBundle.forEach((button) => {
+                button.addEventListener('click', function () {
+                    const bundleText = document.querySelector('.cm-bundle-text');
+                    if (bundleText) {
+                        bundleText.classList.add('some-class');
+                    }
+    
+                    const dataPrice = button.getAttribute('data-price');
+                    const dataName = button.getAttribute('data-name');
+                    const dataImage = button.getAttribute('data-image');
+    
+                    const existingItem = collectionOfData.find(item => item.name === dataName);
+    
+                    if (!existingItem) {
+                        const extractData = { price: dataPrice, name: dataName, image: dataImage };
+                        collectionOfData.push(extractData);
+    
+                        button.textContent = "Remove";
+                    } else {
+                        collectionOfData.splice(collectionOfData.indexOf(existingItem), 1);
+                        button.textContent = "Add to Bundle";
+                    }
+    
+                    const productList = document.getElementById('bundlebar-listing-items');
+                    productList.innerHTML = ''; 
+    
+                    collectionOfData.forEach(product => {
+                        const productDiv = document.createElement('div');
+                        productDiv.classList.add('bundlebar-listing-items-sub');
+    
+                        productDiv.innerHTML = `
+                            <div>
+                                <img class="bundlebar-listing-items_image" src="${product.image}" alt="${product.name}">
+                                <div class="bundlebar-listing-items_text">${product.name}</div>
+                            </div>
+                        `;
+    
+                        productList.appendChild(productDiv);
+                    });
+                });
+            });
+    
+            productList.addEventListener('click', function(event) {
+                if (event.target.classList.contains('bundlebar-listing-items-sub')) {
+                    const clickedItemText = event.target.querySelector('.bundlebar-listing-items_text').textContent;
+                    const clickedItemIndex = collectionOfData.findIndex(item => item.name === clickedItemText);
+    
+                    if (clickedItemIndex !== -1) {
+
+                        collectionOfData.splice(clickedItemIndex, 1);
+    
+                        event.target.remove();
+    
+                        buttonsAddBundle.forEach(button => {
+                            if (button.getAttribute('data-name') === clickedItemText) {
+                                button.textContent = "Add to Bundle";
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+    
+
+
+
+
+    
    
 {{/partial}}
 {{> layout/base}}
