@@ -27,6 +27,15 @@ buttons.forEach(function (button) {
   });
 });
 
+const containers = document.querySelectorAll('.related-product-container, .related-product-container-none');
+
+containers.forEach(container => {
+    container.addEventListener('click', function() {
+        this.style.border = "2px solid #8111bb";
+    });
+});
+
+
 // $(".related-product-btn-2").click(function () {
 //     var image = $(this).attr("data-image");
 //     console.log("--- image ", image);
