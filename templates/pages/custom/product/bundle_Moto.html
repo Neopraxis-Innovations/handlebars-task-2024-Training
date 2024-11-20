@@ -1,0 +1,81 @@
+---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+---
+{{inject 'productId' product.id}}
+{{inject 'relatedproducts' product.related_products}}
+
+{{#partial "page"}}
+<div class="bundle-wrapper">
+    <div class="row ">
+        <div class="column large-12 main-content-box">
+            <div class="column large-4 first-sec">
+                <div class="columns large-6">
+                    <img src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/900w/products/266/1472/download_5_-_Edited_1__23733.1673885135.png" alt="">
+                </div>
+                <div class="columns large-6">
+                    Motrola Edge-40 
+                </div>
+            </div>
+            <div class="column large-4 second-sec">
+                <div>
+                    <p class="bundle-text">Hello, Welcome Home...!</p>
+                </div>
+            </div>
+            <div class="columns large-4 third-sec">
+                <div class="columns large-6 product-price">
+                    32000
+                    <div class="price-details"> 
+                        Price Details
+                    </div>
+                </div>
+                <button class="button  main-button" style="background: linear-gradient(270deg, #990AE2 1.67%, #1485EF 90.39%);">
+                    Add to cart
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-headline-content">
+    Add a rear-facing camera for more protection...
+    </div>
+    <div class="row">
+        {{#each product.related_products}}
+        <div class="columns large-3 product-list-content">
+            <div class="product-detail">
+                <div class="product-name">
+                    Related Products
+                </div>
+                <div >
+                <img src="{{getImage image}}" class="none-image-box">
+                </div>
+                <button class="button large-6 first-button">
+                    Learn more
+                </button>
+                <button class="button large-6 second-button" data-image="{{getImage image}}">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(".second-button").click(function(){
+  var image =$(this).attr('data-image')
+  console.log("--- image ",image);
+  $('.bundle-text').append(`<img src="${image}"  >`)
+});code
+  </script>
+    
+{{/partial}}
+{{> layout/base}}
