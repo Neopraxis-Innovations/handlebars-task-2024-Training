@@ -1,24 +1,25 @@
 // Get all buttons with the class 'related-product-btn-2'
-const buttons = document.querySelectorAll('.related-product-btn-2');
+const buttons = document.querySelectorAll(".related-product-btn-2");
 
 // Loop through each button and add a click event listener
-buttons.forEach(function(button) {
-  button.addEventListener('click', function() {
+buttons.forEach(function (button) {
+  button.addEventListener("click", function () {
     // Get the 'data-image' attribute value from the clicked button
-    const image = button.getAttribute('data-image');
+    const image = button.getAttribute("data-image");
     if (image) {
       console.log("--- image ", image);
-      
+
       // Create a new <img> element
-      const img = document.createElement('img');
-      
+      const img = document.createElement("img");
+
       // Set the src attribute to the image URL
       img.src = image;
-      img.width=50;
-      img.height=50;
-      
+      img.width = 50;
+      img.height = 50;
+      img.style.position='absolute';
+
       // Append the image to the '.bundle-bar-coloumn-2' element
-      const container = document.querySelector('.bundle-bar-coloumn-2');
+      const container = document.querySelector(".bundle-bar-coloumn-2");
       container.appendChild(img);
     } else {
       console.log("No image data found.");

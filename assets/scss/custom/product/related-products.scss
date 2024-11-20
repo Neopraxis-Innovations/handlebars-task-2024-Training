@@ -35,7 +35,7 @@
   padding: 0px 0px;
   background: #efefef;
   border-radius: 20px;
-  border:solid 10px #efefef;
+  border: solid 10px #efefef;
   height: 100px;
   // position: fixed;
   // top: 10px;
@@ -112,6 +112,7 @@
   align-items: center !important;
   justify-content: center !important;
 }
+
 .product-image {
   // margin: 2px;
   width: 150px;
@@ -216,28 +217,27 @@
   .listing-section {
     justify-content: center !important;
   }
-  .related-product-container{
+  .related-product-container {
     width: 158px !important;
   }
-  .related-product-name{
-  min-height: 50px;
+  .related-product-name {
+    min-height: 50px;
   }
-  .related-product-btn-2{
+  .related-product-btn-2 {
     min-width: 85px;
-  margin-left: 0px;
+    margin-left: 0px;
   }
-  .related-product-btn-1{
+  .related-product-btn-1 {
     min-width: 69px;
-   
   }
-  .related-product-actions{
+  .related-product-actions {
     gap: 10px;
     display: grid;
     align-items: center;
     justify-content: center;
   }
 
-  .related-product-container-none{
+  .related-product-container-none {
     width: 158px !important;
-}
+  }
 }
