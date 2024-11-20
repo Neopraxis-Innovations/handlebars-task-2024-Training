@@ -4,10 +4,13 @@ const buttons = document.querySelectorAll(".related-product-btn-2");
 // Loop through each button and add a click event listener
 buttons.forEach(function (button) {
   button.addEventListener("click", function () {
-    // Get the 'data-image' attribute value from the clicked button
+    // Get the 'data-image' and 'data-name' attribute values from the clicked button
     const image = button.getAttribute("data-image");
-    if (image) {
+    const name = button.getAttribute("data-name");
+
+    if (image && name) {
       console.log("--- image ", image);
+      console.log("--- name ", name);
 
       // Create a new <img> element
       const img = document.createElement("img");
@@ -16,28 +19,43 @@ buttons.forEach(function (button) {
       img.src = image;
       img.width = 50;
       img.height = 50;
-      img.style.position='absolute';
+      img.style.position = "absolute";
 
-      // Append the image to the '.bundle-bar-coloumn-2' element
+      // Create a new <span> element for the name
+      const nameElement = document.createElement("span");
+      nameElement.textContent = name;
+      nameElement.style.position= "absolute";
+
+      // Append the image and name to the '.bundle-bar-coloumn-2' element
       const container = document.querySelector(".bundle-bar-coloumn-2");
       container.appendChild(img);
+      container.appendChild(nameElement);
     } else {
-      console.log("No image data found.");
+      console.log("No image or name data found.");
     }
   });
 });
 
-const containers = document.querySelectorAll('.related-product-container, .related-product-container-none');
 
-containers.forEach(container => {
-    container.addEventListener('click', function() {
-        this.style.border = "2px solid #8111bb";
-    });
+// Adding border to product card when clicked on it
+const containers = document.querySelectorAll(
+  ".related-product-container, .related-product-container-none"
+);
+
+containers.forEach((container) => {
+  container.addEventListener("click", function () {
+    this.style.border = "2px solid #8111bb";
+  });
 });
 
+//remove the appended products when clicked on none
+document
+  .querySelector(".related-product-container-none")
+  .addEventListener("click", function () {
+    var relatedProducts = document.querySelectorAll(".bundle-bar-coloumn-2");
+    relatedProducts.forEach(function (product) {
+      product.style.visibility = "hidden"; // Hide all elements with class 'bundle-bar-coloumn-2'
+    });
+  });
 
-// $(".related-product-btn-2").click(function () {
-//     var image = $(this).attr("data-image");
-//     console.log("--- image ", image);
-//     $(".bundle-bar-coloumn-2").append(`<img src="${image}" style="width:50px; height:auto">`);
-// });
+

@@ -85,10 +85,10 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  position: relative;
 }
 
 .bundle-bar-coloumn-2 {
-  border-right: solid 1px #000;
   min-height: 100px;
   display: flex;
   align-items: center !important;
@@ -107,10 +107,12 @@
 }
 
 .bundle-bar-coloumn-3 {
+  border-left: solid 1px #000;
   min-height: 100px;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  position: relative;
 }
 
 .product-image {
