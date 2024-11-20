@@ -3,10 +3,9 @@
     margin-left: calc(-50vw + 50%);
     padding: 13px;
 }
-
 .product-container{
-    max-width: unset;
-    display: flex;
+    max-width: unset !important;
+    display: flex !important; 
     flex-wrap: wrap;
 }    
 .main-content-box{
@@ -59,7 +58,7 @@
     width: 100%;
     height: 40px;
     padding: 0px;
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
 .main-headline-content{
@@ -143,3 +142,5 @@
     }
     
 }
+
+
