@@ -8,33 +8,48 @@ buttons.forEach(function (button) {
     const image = button.getAttribute("data-image");
     const name = button.getAttribute("data-name");
 
-    if (image && name) {
-      console.log("--- image ", image);
-      console.log("--- name ", name);
+    // If the button text is 'Remove', we remove the product
+    if (button.textContent === "Remove") {
+      const container = document.querySelector(".bundle-bar-coloumn-2");
 
+      // Find the image and name elements based on the data-image and data-name
+      const imgElement = container.querySelector(`img[data-image="${image}"]`);
+      const nameElement = container.querySelector(`span[data-name="${name}"]`);
+
+      // Remove the image and name if found
+      if (imgElement && nameElement) {
+        container.removeChild(imgElement);
+        container.removeChild(nameElement);
+      }
+
+      // Change button text back to "Add to Bundle"
+      button.textContent = "Add to Bundle";
+    } else if (image && name) {
       // Create a new <img> element
       const img = document.createElement("img");
-
-      // Set the src attribute to the image URL
       img.src = image;
-      img.width = 50;
-      img.height = 50;
-      img.style.position = "absolute";
+      img.width = 40;
+      img.height = 40;
+      img.setAttribute("data-image", image);  // Set a data attribute for easy removal
 
       // Create a new <span> element for the name
       const nameElement = document.createElement("span");
       nameElement.textContent = name;
-      nameElement.style.position = "absolute";
+      nameElement.style.fontSize = "10px"; 
+      nameElement.setAttribute("data-name", name);  // Set a data attribute for easy removal
 
       // Append the image and name to the '.bundle-bar-coloumn-2' element
       const container = document.querySelector(".bundle-bar-coloumn-2");
       container.appendChild(img);
       container.appendChild(nameElement);
-    } else {
-      console.log("No image or name data found.");
+
+      // Change the button text to "Remove"
+      button.textContent = "Remove";
     }
   });
 });
+
+
 
 // Adding border to product card when clicked on it
 const containers = document.querySelectorAll(
@@ -47,7 +62,7 @@ containers.forEach((container) => {
   });
 });
 
-//remove the appended products when clicked on none
+//remove the appended products when clicked none
 document
   .querySelector(".related-product-container-none")
   .addEventListener("click", function () {
