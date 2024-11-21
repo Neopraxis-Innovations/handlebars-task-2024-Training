@@ -9,6 +9,14 @@
   padding: 13px;
 }
 
+.image-name-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px 0 8px;
+}
+
 .row {
   // margin: 6px !important;
   max-width: unset !important;
