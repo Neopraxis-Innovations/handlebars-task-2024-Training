@@ -78,18 +78,6 @@
   margin-top: 10px;
 }
 
-.bundle-bar-small-image {
-  width: 45px;
-  height: 45px;
-  object-fit: contain;
-  display: none;
-}
-
-.bundle-bar-small-image-text {
-  font-size: 10px;
-  display: none;
-}
-
 .bundle-bar-coloumn, .bundle-bar-coloumn-3 {
   // min-height: 100px;
   display: flex !important;
@@ -111,15 +99,6 @@
   border-left: solid 1px #000;
   border-right: solid 1px #000;
 
-}
-
-.bundle-bar-coloumn-2-text {
-  text-align: center;
-  white-space: nowrap;
-  align-items: center;
-  margin-left: 175px;
-  font-size: 15px;
-  font-weight: 600;
 }
 
 .product-image {
