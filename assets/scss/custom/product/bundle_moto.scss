@@ -3,7 +3,7 @@
     margin-left: calc(-50vw + 50%);
     padding: 13px;
 }
-.product-container{
+.row{
     max-width: unset !important;
     display: flex !important; 
     flex-wrap: wrap;
@@ -142,5 +142,3 @@
     }
     
 }
-
-
