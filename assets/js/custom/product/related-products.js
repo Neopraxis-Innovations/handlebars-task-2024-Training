@@ -7,6 +7,7 @@ buttons.forEach(function (button) {
     // Get the 'data-image' and 'data-name' attribute values from the clicked button
     const image = button.getAttribute("data-image");
     const name = button.getAttribute("data-name");
+    const price = button.getAttribute("data-price");
 
     // If the button text is 'Remove', we remove the product
     if (button.textContent === "Remove") {
@@ -50,6 +51,8 @@ buttons.forEach(function (button) {
       // Change the button text to "Remove"
       button.textContent = "Remove";
     }
+    
+  
   });
 });
 
