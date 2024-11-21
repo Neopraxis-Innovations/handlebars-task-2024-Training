@@ -13,18 +13,20 @@ buttons.forEach(function (button) {
       const container = document.querySelector(".bundle-bar-coloumn-2");
 
       // Find the image and name elements based on the data-image and data-name
-      const imgElement = container.querySelector(`img[data-image="${image}"]`);
-      const nameElement = container.querySelector(`span[data-name="${name}"]`);
-
-      // Remove the image and name if found
-      if (imgElement && nameElement) {
-        container.removeChild(imgElement);
-        container.removeChild(nameElement);
+      const imageAndNameContainer = container.querySelector(`.image-name-container img[data-image="${image}"]`);
+      
+      // If imageAndNameContainer is found, remove its parent div
+      if (imageAndNameContainer) {
+        const parentDiv = imageAndNameContainer.closest(".image-name-container");
+        parentDiv.remove();  // Remove the entire container
       }
 
       // Change button text back to "Add to Bundle"
       button.textContent = "Add to Bundle";
     } else if (image && name) {
+      const imageAndNameContainer = document.createElement("div");
+      imageAndNameContainer.classList.add("image-name-container");
+
       // Create a new <img> element
       const img = document.createElement("img");
       img.src = image;
@@ -38,10 +40,12 @@ buttons.forEach(function (button) {
       nameElement.style.fontSize = "10px"; 
       nameElement.setAttribute("data-name", name);  // Set a data attribute for easy removal
 
+      imageAndNameContainer.appendChild(img);
+      imageAndNameContainer.appendChild(nameElement);
+
       // Append the image and name to the '.bundle-bar-coloumn-2' element
       const container = document.querySelector(".bundle-bar-coloumn-2");
-      container.appendChild(img);
-      container.appendChild(nameElement);
+      container.appendChild(imageAndNameContainer);
 
       // Change the button text to "Remove"
       button.textContent = "Remove";
