@@ -1,6 +1,9 @@
 {{#partial "page"}}
 
+<!-- div for all items -->
 <div class="cm-bundle-builder-wrapper">
+  
+  <!-- bundle-bar -->
   <div class="row">
     <div class="columns small-12 large-12 bundle-bar">
       <div class="row">
@@ -23,11 +26,7 @@
               Choose add-ons and services to create your bundle, or say “None.”
             </div> -->
             <div class="columns small-2 large-2">
-              <img
-                src="https://cdn11.bigcommerce.com/s-48z8zzk1az/images/stencil/900w/products/180/7061/rear_view_camera__40096.1727254134.png"
-                class="bundle-bar-small-image"
-              />
-              <div class="bundle-bar-small-image-text">Rear View Camera</div>
+              
             </div>
           </div>
         </div>
@@ -35,7 +34,7 @@
           <div class="row">
             <div class="columns small-6 large-6 product-price">
               {{product.price.without_tax.formatted}}
-              <div class="product-price-content">or 3 payments of £177.82</div>
+              <!-- <div class="product-price-content">or 3 payments of £177.82</div> -->
             </div>
             <div class="columns small-6 large-6">
               <button class="add-to-cart-btn">Add to cart</button>
@@ -83,6 +82,8 @@
         </div>
       </div>
       {{/each}}
+
+      <!-- none container -->
       <div class="columns large-3 related-product-container-none">
         <div>
           <img
@@ -97,11 +98,4 @@
     {{/partial}} {{> layout/base}}
   </div>
 </div>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>
-  $(".related-product-btn-2").click(function () {
-    var image = $(this).attr("data-image");
-    console.log("--- image ", image);
-    $(".bundle-bar-coloumn-2").append(`<img src="${image}" style="width:80px; height:auto">`);
-  });
-</script> -->
+

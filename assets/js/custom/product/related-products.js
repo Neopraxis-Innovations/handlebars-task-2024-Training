@@ -54,7 +54,6 @@ buttons.forEach(function (button) {
 });
 
 
-
 // Adding border to product card when clicked on it
 const containers = document.querySelectorAll(
   ".related-product-container, .related-product-container-none"
