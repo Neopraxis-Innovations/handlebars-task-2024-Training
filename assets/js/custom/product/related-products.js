@@ -71,7 +71,7 @@ containers.forEach((container) => {
 });
 
 document
-  .querySelector(".related-product-container-none")
+  .querySelector(".cm-none-card")
   .addEventListener("click", function () {
     // Select all related product containers
     var relatedProducts = document.querySelectorAll(".image-name-container");
@@ -99,18 +99,5 @@ document
   });
 
 
-//unselect none when click product container
-document
-  .querySelectorAll(".related-product-container")
-  .forEach(function (element) {
-    element.addEventListener("click", function () {
-      var unselectNone = document.querySelector(
-        ".related-product-container-none"
-      );
-      if (unselectNone) {
-        unselectNone.style.border = "none";
-      }
-    });
-  });
 
   
