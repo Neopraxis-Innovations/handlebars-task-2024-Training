@@ -1,21 +1,20 @@
 // Initialize an array to store the prices of the products in the bundle
 let prices = [];
+let amt;
+amt = parseInt(amt);
 
 // Function to update the total price
 function updateTotalPrice() {
-const totalPrice = prices.reduce((total, price) => total + price, 0);
+  const totalPrice = prices.reduce((total, price) => total + price, amt);
 
-// Get the element by ID or class
-const element = document.querySelector('.product-price'); // or document.querySelector('.myElement')
+  // Get the element by ID or class
+  const element = document.querySelector(".product-price");
 
-// Set the totalPrice as the content of the element
-element.innerHTML = `$${totalPrice}`;
+  // Set the totalPrice as the content of the element
+  element.innerHTML = `${totalPrice}`;
 
-  
   console.log("Total Price: ", totalPrice);
-  // You can display the total price in the DOM or take other actions as needed
 }
-
 
 // Get all buttons with the class 'related-product-btn-2'
 const buttons = document.querySelectorAll(".related-product-btn-2");
@@ -56,7 +55,13 @@ buttons.forEach(function (button) {
       updateTotalPrice();
 
       // Change button text back to "Add to Bundle"
-      button.innerHTML = "Add to Bundle"; 
+      button.innerHTML = "Add to Bundle";
+
+      // Remove the border from the container of the clicked "Remove" button
+      const productContainer = button.closest(".related-product-container");
+      if (productContainer) {
+        productContainer.style.border = "none"; // Remove the border
+      }
     } else if (image && name && !isNaN(price)) {
       const imageAndNameContainer = document.createElement("div");
       imageAndNameContainer.classList.add("image-name-container");
@@ -89,52 +94,57 @@ buttons.forEach(function (button) {
 
       // Change the button text to "Remove"
       button.innerHTML = "Remove";
+
+      // Add a border to the container when the product is added
+      const productContainer = button.closest(".related-product-container");
+      if (productContainer) {
+        productContainer.style.border = "2px solid #8111bb"; // Add a border
+      }
     }
   });
 });
 
-// Adding border to product card when clicked on it
-const containers = document.querySelectorAll(
-  ".related-product-container, .related-product-container-none"
+const allProductPrice = document.querySelector(".product-price");
+let productTotalPrice = parseFloat(
+  allProductPrice.getAttribute("data-product_total_price")
 );
 
-containers.forEach((container) => {
-  container.addEventListener("click", function () {
-    this.style.border = "2px solid #8111bb";
+console.log("Original Product Total Price:", productTotalPrice);
+
+// Convert to an integer (rounding down)
+productTotalPrice = Math.floor(productTotalPrice);
+console.log("Converted Product Total Price:", productTotalPrice);
+amt = productTotalPrice;
+
+document.querySelector(".cm-none-card").addEventListener("click", function () {
+  // Select all related product containers
+  var relatedProducts = document.querySelectorAll(".image-name-container");
+
+  // Loop through each product and remove it
+  relatedProducts.forEach(function (product) {
+    product.remove();
+
+    // Unselect the product containers
+    var unselectContainer = document.querySelectorAll(
+      ".related-product-container"
+    );
+    unselectContainer.forEach(function (container) {
+      container.style.border = "none";
+    });
+  });
+
+  // Clear the prices array and update total price to 0
+  prices = [];
+  updateTotalPrice();
+
+  // Reset the button text to "Add to Bundle" when "none" is clicked
+  const buttons = document.querySelectorAll(".related-product-btn-2");
+  buttons.forEach(function (button) {
+    if (button.textContent === "Remove") {
+      button.innerHTML = "Add to Bundle";
+    }
   });
 });
-
-document
-  .querySelector(".cm-none-card")
-  .addEventListener("click", function () {
-    // Select all related product containers
-    var relatedProducts = document.querySelectorAll(".image-name-container");
-
-    // Loop through each product and remove it
-    relatedProducts.forEach(function (product) {
-      product.remove();
-
-      // Unselect the product containers
-      var unselectContainer = document.querySelectorAll(
-        ".related-product-container"
-      );
-      unselectContainer.forEach(function (container) {
-        container.style.border = "none";
-      });
-    });
-
-    // Clear the prices array and update total price to 0
-    prices = [];
-    updateTotalPrice();
-
-    // Reset the button text to "Add to Bundle" when "none" is clicked
-    const buttons = document.querySelectorAll(".related-product-btn-2");
-    buttons.forEach(function (button) {
-      if (button.textContent === "Remove") {
-        button.innerHTML = "Add to Bundle";
-      }
-    });
-  });
 
 // Adding border to product card when clicked on it
 const container = document.querySelectorAll(
@@ -147,32 +157,28 @@ containers.forEach((container) => {
   });
 });
 
-document
-  .querySelector(".cm-none-card")
-  .addEventListener("click", function () {
-    // Select all related product containers
-    var relatedProducts = document.querySelectorAll(".image-name-container");
+document.querySelector(".cm-none-card").addEventListener("click", function () {
+  // Select all related product containers
+  var relatedProducts = document.querySelectorAll(".image-name-container");
 
-    // Loop through each product and remove it
-    relatedProducts.forEach(function (product) {
-      product.remove();
+  // Loop through each product and remove it
+  relatedProducts.forEach(function (product) {
+    product.remove();
 
-      // Unselect the product containers
-      var unselectContainer = document.querySelectorAll(
-        ".related-product-container"
-      );
-      unselectContainer.forEach(function (container) {
-        container.style.border = "none";
-      });
-    });
-
-    // Reset the button text to "Add to Bundle" when "none" is clicked
-    const buttons = document.querySelectorAll(".related-product-btn-2");
-    buttons.forEach(function (button) {
-      if (button.textContent === "Remove") {
-        button.innerHTML = "Add to Bundle";
-      }
+    // Unselect the product containers
+    var unselectContainer = document.querySelectorAll(
+      ".related-product-container"
+    );
+    unselectContainer.forEach(function (container) {
+      container.style.border = "none";
     });
   });
 
-  
+  // Reset the button text to "Add to Bundle" when "none" is clicked
+  const buttons = document.querySelectorAll(".related-product-btn-2");
+  buttons.forEach(function (button) {
+    if (button.textContent === "Remove") {
+      button.innerHTML = "Add to Bundle";
+    }
+  });
+});
