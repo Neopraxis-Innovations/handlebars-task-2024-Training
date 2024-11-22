@@ -1,22 +1,21 @@
-// Initialize an array to store the prices of the products in the bundle
 let prices = [];
-let amt;
-amt = parseInt(amt);
+let mainProductPrice;
+mainProductPrice = parseInt(mainProductPrice);
 
 // Function to update the total price
 function updateTotalPrice() {
-  const totalPrice = prices.reduce((total, price) => total + price, amt);
+  const totalPrice = prices.reduce(
+    (total, price) => total + price,
+    mainProductPrice
+  );
 
-  // Get the element by ID or class
-  const element = document.querySelector(".product-price");
+  const price = document.querySelector(".product-price");
 
-  // Set the totalPrice as the content of the element
-  element.innerHTML = `${totalPrice}`;
+  price.innerHTML = `€${totalPrice}`;
 
   console.log("Total Price: ", totalPrice);
 }
 
-// Get all buttons with the class 'related-product-btn-2'
 const buttons = document.querySelectorAll(".related-product-btn-2");
 
 // Loop through each button and add a click event listener
@@ -75,8 +74,9 @@ buttons.forEach(function (button) {
 
       // Create a new <span> element for the name
       const nameElement = document.createElement("span");
+      nameElement.classList.add("bundle-bar-image-text");
       nameElement.textContent = name;
-      nameElement.style.fontSize = "10px";
+      // nameElement.style.fontSize = "10px";
       nameElement.setAttribute("data-name", name); // Set a data attribute for easy removal
 
       imageAndNameContainer.appendChild(img);
@@ -114,7 +114,7 @@ console.log("Original Product Total Price:", productTotalPrice);
 // Convert to an integer (rounding down)
 productTotalPrice = Math.floor(productTotalPrice);
 console.log("Converted Product Total Price:", productTotalPrice);
-amt = productTotalPrice;
+mainProductPrice = productTotalPrice;
 
 document.querySelector(".cm-none-card").addEventListener("click", function () {
   // Select all related product containers
