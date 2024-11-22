@@ -52,8 +52,10 @@ const pageClasses = {
     wishlists: () => import('./theme/wishlist'),
 };
 
-const customClasses = {};
-
+const customClasses = {
+    'pages\\custom\\product\\accessories-parts-bundlebuilder': () => import('./custom/product/accessories-parts-bundlebuilder'), 
+    'pages/custom/product/accessories-parts-bundlebuilder': () => import('./custom/product/accessories-parts-bundlebuilder'), 
+}
 /**
  * This function gets added to the global window and then called
  * on page load with the current template loaded and JS Context passed in
