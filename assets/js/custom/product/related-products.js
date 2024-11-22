@@ -8,18 +8,23 @@ buttons.forEach(function (button) {
     const image = button.getAttribute("data-image");
     const name = button.getAttribute("data-name");
     const price = button.getAttribute("data-price");
+    console.log("====>", price);
 
     // If the button text is 'Remove', we remove the product
     if (button.textContent === "Remove") {
       const container = document.querySelector(".bundle-bar-coloumn-2");
 
       // Find the image and name elements based on the data-image and data-name
-      const imageAndNameContainer = container.querySelector(`.image-name-container img[data-image="${image}"]`);
-      
+      const imageAndNameContainer = container.querySelector(
+        `.image-name-container img[data-image="${image}"]`
+      );
+
       // If imageAndNameContainer is found, remove its parent div
       if (imageAndNameContainer) {
-        const parentDiv = imageAndNameContainer.closest(".image-name-container");
-        parentDiv.remove();  // Remove the entire container
+        const parentDiv = imageAndNameContainer.closest(
+          ".image-name-container"
+        );
+        parentDiv.remove(); // Remove the entire container
       }
 
       // Change button text back to "Add to Bundle"
@@ -33,13 +38,13 @@ buttons.forEach(function (button) {
       img.src = image;
       img.width = 40;
       img.height = 40;
-      img.setAttribute("data-image", image);  // Set a data attribute for easy removal
+      img.setAttribute("data-image", image); // Set a data attribute for easy removal
 
       // Create a new <span> element for the name
       const nameElement = document.createElement("span");
       nameElement.textContent = name;
-      nameElement.style.fontSize = "10px"; 
-      nameElement.setAttribute("data-name", name);  // Set a data attribute for easy removal
+      nameElement.style.fontSize = "10px";
+      nameElement.setAttribute("data-name", name); // Set a data attribute for easy removal
 
       imageAndNameContainer.appendChild(img);
       imageAndNameContainer.appendChild(nameElement);
@@ -51,11 +56,8 @@ buttons.forEach(function (button) {
       // Change the button text to "Remove"
       button.textContent = "Remove";
     }
-    
-  
   });
 });
-
 
 // Adding border to product card when clicked on it
 const containers = document.querySelectorAll(
@@ -68,15 +70,17 @@ containers.forEach((container) => {
   });
 });
 
-//remove the appended products when clicked none
 document
   .querySelector(".related-product-container-none")
   .addEventListener("click", function () {
-    var relatedProducts = document.querySelectorAll(".bundle-bar-coloumn-2");
-    relatedProducts.forEach(function (product) {
-      product.style.visibility = "hidden"; // Hide all elements with class 'bundle-bar-coloumn-2'
+    // Select all related product containers
+    var relatedProducts = document.querySelectorAll(".image-name-container");
 
-      //Unselect the product containers
+    // Loop through each product and remove it
+    relatedProducts.forEach(function (product) {
+      product.remove();
+
+      // Unselect the product containers
       var unselectContainer = document.querySelectorAll(
         ".related-product-container"
       );
@@ -86,16 +90,16 @@ document
     });
   });
 
-
-  //unselect none when click product container
-  document.querySelectorAll(".related-product-container").forEach(function (element) {
+//unselect none when click product container
+document
+  .querySelectorAll(".related-product-container")
+  .forEach(function (element) {
     element.addEventListener("click", function () {
-      var unselectNone = document.querySelector(".related-product-container-none");
+      var unselectNone = document.querySelector(
+        ".related-product-container-none"
+      );
       if (unselectNone) {
         unselectNone.style.border = "none";
       }
     });
   });
-
-  
-  
