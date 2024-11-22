@@ -28,7 +28,7 @@ buttons.forEach(function (button) {
       }
 
       // Change button text back to "Add to Bundle"
-      button.textContent = "Add to Bundle";
+      button.innerHTML = "Add to Bundle"; 
     } else if (image && name) {
       const imageAndNameContainer = document.createElement("div");
       imageAndNameContainer.classList.add("image-name-container");
@@ -54,7 +54,7 @@ buttons.forEach(function (button) {
       container.appendChild(imageAndNameContainer);
 
       // Change the button text to "Remove"
-      button.textContent = "Remove";
+      button.innerHTML = "Remove";
     }
   });
 });
@@ -88,7 +88,16 @@ document
         container.style.border = "none";
       });
     });
+
+    // Reset the button text to "Add to Bundle" when "none" is clicked
+    const buttons = document.querySelectorAll(".related-product-btn-2");
+    buttons.forEach(function (button) {
+      if (button.textContent === "Remove") {
+        button.innerHTML = "Add to Bundle";
+      }
+    });
   });
+
 
 //unselect none when click product container
 document
@@ -103,3 +112,5 @@ document
       }
     });
   });
+
+  
