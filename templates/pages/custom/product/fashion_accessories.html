@@ -41,27 +41,25 @@ product:
 
     <div class="page-wraper">
         <div class="row" id="navbar">
-            <div class="columns large-12">
+            <div class="columns small-12 large-12">
                 <div class="columns large-3 ">
                     <div class="columns large-6">
-                        <img class="bundle_left_image" src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTI1DcKqzeGvqn5xYQQUpYm3szvAZh90X0LVWAGSb8yTiWDoCBbHrOvcxzeigN7yIKfIeUe4XSm_tmqq1Geu8hLNl63wISc5bvar3asAqb7KLbvkjdGXgUo">
+                        <img class="bundle_left_image" src="{{getImage product.main_image}}">
                     </div>
                         <div class="columns large-6">
-                        <h2 class="left_bundle_title">Calvin Klein Handbags</h2>
+                        <h2 class="left_bundle_title">{{product.title}}</h2>
                     </div>
                 </div>
                 <div class="columns large-6">
                     <p class="bundle"></p>
+
                 </div>
-                
-                <!-- <div class="columns large-6">
-                    <p class="total-price">$0.00</p>
-                </div> -->
                 <div class="columns large-3">
                     <div class="columns large-6 bundle3">
-                        <div class="textunder_price">
-                            <span style="color:black;font-weight:bold">£</span>183.50
+                        <div class="textunder_price" id="mainProductPrice" data-product_main_price="{{product.price.without_tax.value}}">
+                            {{product.price.without_tax.formatted}}
                         </div>
+                        
                     </div>
                     <div class="columns large-6 bundle3">
                         <div class="cart_button">
@@ -75,17 +73,17 @@ product:
         <div class="accessories-row">
             {{#each product.related_products}}
             <div>
-                <div class="columns large-3 accessories-list">
-                    <div> 
+                <div class="columns small-6 large-3 accessories-list">
+                    <div>
                         <div class="accessories-name">{{name}}</div>
-                        <div class="accessories-price">{{price.without_tax.formatted}}</div> 
+                        <div class="accessories-price"id="selectlist">{{price.without_tax.formatted}}</div> 
                         <img class="product-image" src="{{getImage image}}">
                         <div class="accessories-button">
                             <div class="accessories-list-button">
                                 <button class="button-learn">View Details</button>
                             </div>
                             <div class="accessories-list-button">
-                                <button class="button-bundle" onclick="addToCart('{{name}}', '{{getImage image}}',' {{price.without_tax.formatted}}')">Add to bundle</button>
+                                <button class="button-bundle" onclick="addToCart('{{name}}', '{{getImage image}}',' {{price.without_tax.value}}')">Add to bundle</button>
                             </div>
                         </div> 
                     </div>
